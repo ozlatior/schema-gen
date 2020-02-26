@@ -1,0 +1,124 @@
+[
+	{
+		"id": "/EmptyObject",
+		"type": "object",
+		"properties": {}
+	},
+	{
+		"id": "/NumberPrimitive",
+		"type": "number",
+		"valid": {
+			"range": [ 0, 10 ]
+		},
+		"attributes": [ "null" ]
+	},
+	{
+		"id": "/StringPrimitive",
+		"type": "string",
+		"valid": {
+			"length": 20,
+			"regexp": "^[0-9]+$"
+		},
+		"attributes": [ "null" ]
+	},
+	{
+		"id": "/BooleanPrimitive",
+		"type": "boolean",
+		"attributes": [ "null" ]
+	},
+	{
+		"id": "/AllOptional",
+		"type": "object",
+		"properties": {
+			"field1": {
+				"type": "number",
+				"attributes": [ "optional" ]
+			},
+			"field2": {
+				"type": "string",
+				"attributes": [ "optional" ]
+			}
+		}
+	},
+	{
+		"id": "/SimpleAddress",
+		"type": "object",
+		"properties": {
+			"lines": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				}
+			},
+			"zip": {
+				"type": "string"
+			},
+			"city": {
+				"type": "string"
+			},
+			"country": {
+				"type": "string"
+			}
+		},
+		"required": ["country"]
+	},
+	{
+		"id": "/MixedArray",
+		"type": "array",
+		"items": [
+			{
+				"type": "number",
+				"valid": {
+					"range": [ 0, 10 ]
+				},
+				"attributes": [ "null" ]
+			},
+			{
+				"type": "string",
+				"valid": {
+					"length": [ 0, 6 ]
+				}
+			},
+			{
+				"type": "boolean"
+			}
+		],
+		"valid": {
+			"length": [ 0, 6 ]
+		}
+	},
+	{
+		"id": "/AddressArray",
+		"type": "array",
+		"items": "/SimpleAddress"
+	},
+	{
+		"id": "/Validations",
+		"type": "object",
+		"properties": {
+			"field1": {
+				"type": "number",
+				"valid": {
+					"range": [ 0, 10, false, false ],
+					"type": "integer"
+				}
+			},
+			"field2": {
+				"type": "string",
+				"valid": {
+					"length": [ 4, 10 ],
+					"regexp": "^[a-z]+$"
+				}
+			},
+			"field3": {
+				"type": "array",
+				"itmes": {
+					"type": "number",
+					"valid": {
+						"range": [ 5, 10 ]
+					}
+				}
+			}
+		}
+	}
+]
