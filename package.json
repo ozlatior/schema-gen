@@ -1,5 +1,5 @@
 {
-	"name": "framework-one",
+	"name": "schema-gen",
 	"version": "0.0.1",
 	"scripts": {
 		"test": "mocha"
